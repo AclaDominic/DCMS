@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/app", // where the app will be served under Laravel public
+  base: "/", // Vercel deployment base
   build: {
-    outDir: "../bend/public/app", // output INTO Laravel public
+    outDir: "dist", // Vercel standard output directory
     emptyOutDir: true,
   },
   server: {
@@ -17,6 +17,9 @@ export default defineConfig({
         ws: false,        // important: don't WS proxy to Laravel API
       }
     }
+  },
+  define: {
+    __API_BASE_URL__: JSON.stringify(process.env.VITE_API_BASE_URL || 'http://localhost:8000/api'),
   }
 
   //0000000000000000

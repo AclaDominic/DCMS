@@ -1,11 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/", // same-origin; Laravel + SPA via ngrok
+  baseURL: import.meta.env.VITE_API_BASE_URL || "/api", // Use environment variable for production
   withCredentials: true,
   headers: {
     "X-Requested-With": "XMLHttpRequest",
-    "ngrok-skip-browser-warning": "true",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
   },
 });
 
