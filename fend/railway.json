@@ -6,7 +6,7 @@
   "deploy": {
     "runtime": "V2",
     "numReplicas": 1,
-    "startCommand": "npm run preview",
+    "startCommand": "npm run serve",
     "healthcheckPath": "/",
     "sleepApplication": false,
     "useLegacyStacker": false,
